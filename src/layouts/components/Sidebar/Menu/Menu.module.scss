@@ -1,0 +1,15 @@
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 4px;
+    color: var(--text-color);
+    transition: right linear 0.1s;
+    text-decoration: none;
+    right: 0;
+}
+.title {
+    margin-left: 10px;
+}

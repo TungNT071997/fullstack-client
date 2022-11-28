@@ -1,0 +1,31 @@
+.wrapper-suggested-item{
+    // border-top: 1px solid #e3e3e4;
+}
+.label{
+    font-size: 1.4rem;
+    padding: 8px;
+    font-weight: 600;
+    border-bottom: 1px solid #e3e3e4;
+   
+}
+
+.more-btn{
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #fe2c55;
+    padding: 8px;
+    cursor: pointer;
+}
+.item {
+    position: relative;
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.4rem;
+    margin-left:  8px;
+    transition: right linear 0.1s;
+    right: 0;
+    color: var(--primary) ;
+}
+.item:hover {
+    color: var(--primary);
+}

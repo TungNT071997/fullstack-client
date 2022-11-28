@@ -1,0 +1,40 @@
+.header {
+    width: 100%;
+    height: var(--header-height);
+    background-image: linear-gradient(0,#fe6433,#f53e2d);
+}
+
+
+// CSS notify
+.header-notify {
+    position: absolute;
+    top:118%;
+    right: 0;
+    width: 404px;
+    background-color: var(--white);
+}
+.header-notify-header {
+    height: 40px;
+    background-color: var(--white);
+}
+.header-notify-header h3 {
+    color: #999;
+    margin: 0 0 0 12px;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 40px;
+}
+.header-notify-list{
+    padding-left: 0;
+}
+
+.header-notify-link {
+    display: flex;
+}
+.header-notify-img {
+    width: 48px;
+    object-fit: contain;
+}
+
+// header with search
+
