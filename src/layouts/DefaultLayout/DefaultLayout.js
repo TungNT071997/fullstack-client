@@ -8,7 +8,7 @@ function DefaultLayout({ children }) {
   return (
     <div className={cx("wrapper")}>
       <Header />
-      <Slider className={cx("slider")} />
+      {/* <Slider className={cx("slider")} /> */}
       <div className={cx("container")}>
         <div className="grid">
           <div className={cx("grid-row", "app-content")}>

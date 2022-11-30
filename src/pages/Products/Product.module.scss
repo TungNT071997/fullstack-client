@@ -1,6 +1,16 @@
 .product-item {
     margin-top: 10px;
     background-color: var(--white);
+    position: relative;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0 , 0.1);
+    transition: transform linear 0.1s;
+    will-change: transform ;
+}
+.product-item:hover {
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0 , 0.05);
+    transform: translateY(-1px);
 }
 .product-item-img {
     
@@ -78,14 +88,77 @@
 
 }
 .product-item-favorite {
+    position: absolute;
+    top: 10px;
+    left: -4px;
+    color: orangered;
+    font-size: 1.2rem;
+    background-color: currentColor;
+    font-weight: 500;
+    line-height: 1.6rem;
+    padding-right: 4px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    
+}
+.product-item-favorite::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    border-top: 3px solid currentColor;
+    border-left: 3px solid transparent;
+    filter: brightness(60%);
+}
 
+.product-item-favorite-icon {
+    font-size: 0.9rem;
+    margin: 0 2px 0 5px;
+    color: var(--white);
+   
+    
+}
+.product-item-favorite span {
+    color: var(--white);
 }
 .product-item-sale-off {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 36px;
+    background-color: rgba(255, 216, 64 , 0.9);
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+   
+}
+.product-item-sale-off::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    border-width: 0 20px 5px;
+    border-style: solid;
+    border-color: transparent  rgba(255, 216, 64 , 0.9) transparent  rgba(255, 216, 64 , 0.9);
 
 }
 .product-item-sale-percent {
-
+    color: #EE4D2D;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    position: relative;
+    top: -1px;
+    margin-left: 8px;
+    
 }
 .product-item-sale-label {
-
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: var(--white);
+    position: relative;
+    font-weight: 600;
 }

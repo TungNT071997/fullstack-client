@@ -39,12 +39,15 @@ function Product() {
       </div>
 
       <div className={cx("product-item-favorite")}>
-        <FontAwesomeIcon icon={faCheck} />
-        Yêu Thích
+        <FontAwesomeIcon
+          icon={faCheck}
+          className={cx("product-item-favorite-icon")}
+        />
+        <span>Yêu Thích</span>
       </div>
       <div className={cx("product-item-sale-off")}>
-        <span className={cx("product-item-sale-percent")}>10%</span>
-        <span className={cx("product-item-sale-label")}>Giảm</span>
+        <span className={cx("product-item-sale-percent")}>43%</span>
+        <span className={cx("product-item-sale-label")}>GIẢM</span>
       </div>
     </div>
   );
