@@ -1,10 +1,56 @@
 import { faCartShopping, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import HeadlessTippy from "@tippyjs/react/headless";
+import { Wrapper as PopperWrapper } from "../../../../components/Popper";
+import ProductItem from "../../../../components/ProductItem";
+import { useDebounce } from "../../../../hooks";
+import * as searchService from "../../../../Services/searchService";
+
 import classNames from "classnames/bind";
+import { useState, useRef, useEffect } from "react";
 import styles from "./Search.module.scss";
 
 const cx = classNames.bind(styles);
 function Search() {
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [showResult, setShowResult] = useState(true);
+
+  const debounceValue = useDebounce(searchValue, 500);
+
+  const inputRef = useRef();
+  const handlespace = (e) => {
+    if (e.target.value[0] !== " ") {
+      setSearchValue(e.target.value);
+    }
+  };
+
+  useEffect(() => {
+    if (!searchValue) {
+      return;
+    }
+    // if (!debounceValue) {
+    //   setSearchResult([]);
+    //   return;
+    // }
+    // const fetchApi = async () => {
+    //   const result = await searchService.search(debounceValue);
+    //   setSearchResult(result);
+    // };
+    // fetchApi();
+    fetch(
+      `http://localhost:5000/product?q=${encodeURIComponent(
+        searchValue
+      )}&type=less`
+    )
+      .then((res) => res.json())
+      .then((res) => setSearchResult(res));
+  }, [searchValue]);
+
+  const handleHideResult = () => {
+    setShowResult(false);
+  };
+
   return (
     <div className={cx("header-search")}>
       <div className={cx("header-logo")}>
@@ -17,16 +63,41 @@ function Search() {
           </g>
         </svg>
       </div>
-      <div className={cx("search")}>
-        <input
-          type="text"
-          className={cx("search-input")}
-          placeholder="Nhập để tìm kiếm sản phẩm"
-        />
-        <button className={cx("search-input-btn")}>
-          <FontAwesomeIcon className={cx("search-icon")} icon={faSearch} />
-        </button>
-      </div>
+
+      <HeadlessTippy
+        interactive
+        visible={showResult && searchResult.length > 0}
+        render={(attrs) => (
+          <div className={cx("search-result")} tabIndex="-1" {...attrs}>
+            <PopperWrapper>
+              <h4 className={cx("search-title")}>Tìm Sản Phẩm</h4>
+              {searchResult.map((result) => (
+                <ProductItem key={result.id} data={result} />
+              ))}
+            </PopperWrapper>
+          </div>
+        )}
+        onClickOutside={handleHideResult}
+      >
+        <div className={cx("search")}>
+          <input
+            ref={inputRef}
+            value={searchValue}
+            type="text"
+            className={cx("search-input")}
+            placeholder="Nhập để tìm kiếm sản phẩm"
+            onChange={handlespace}
+            onFocus={() => setShowResult(true)}
+          />
+          <button
+            className={cx("search-input-btn")}
+            // onMouseDown={(e) => e.preventDefault()}
+          >
+            <FontAwesomeIcon className={cx("search-icon")} icon={faSearch} />
+          </button>
+        </div>
+      </HeadlessTippy>
+
       <div className={cx("cart")}>
         <FontAwesomeIcon className={cx("cart-icon")} icon={faCartShopping} />
       </div>

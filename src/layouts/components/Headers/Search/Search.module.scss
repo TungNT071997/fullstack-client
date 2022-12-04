@@ -11,7 +11,12 @@
     width: 150px;
     
 }
+.search , .search-result {
+    width: 834px;
+    
+}
 .search {
+    position: relative;
     flex:1;
     height: 40px;
     background-color: var(--white);
@@ -19,6 +24,8 @@
     display: flex;
     align-items: center;
 }
+
+
 .cart {
     width: 150px;
     text-align: center;

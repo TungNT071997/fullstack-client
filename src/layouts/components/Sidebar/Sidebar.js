@@ -15,9 +15,6 @@ function Sidebar() {
       <Menu>
         <SuggestedItem label="Danh Mục Sản Phẩm" icon={icon} />
         <SuggestedItem label="Bộ Lọc Tìm Kiếm" />
-        <SuggestedItem label="Bộ Lọc Tìm Kiếm" />
-        <SuggestedItem label="Bộ Lọc Tìm Kiếm" />
-        <SuggestedItem label="Bộ Lọc Tìm Kiếm" />
       </Menu>
     </aside>
   );

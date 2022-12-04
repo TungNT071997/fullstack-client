@@ -12,7 +12,7 @@ function SuggestedItem({ label, icon }) {
       <ProductItem />
       <ProductItem />
       <ProductItem />
-      <p className={cx("more-btn")}>xem tất cả</p>
+      <p className={cx("more-btn")}>xem thêm</p>
     </div>
   );
 }
