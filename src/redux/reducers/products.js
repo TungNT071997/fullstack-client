@@ -1,20 +1,20 @@
 import { INIT_STATE } from "../../constant";
-import { getPosts, getType } from "../actions";
+import { getProducts, getType } from "../actions";
 
-export default function postsReducers(state = INIT_STATE.posts, action) {
+export default function productsReducer(state = INIT_STATE.products, action) {
   switch (action.type) {
-    case getType(getPosts.getPostRequest):
+    case getType(getProducts.getProductsRequest):
       return {
         ...state,
         isLoading: true,
       };
-    case getType(getPosts.getPostSuccess):
+    case getType(getProducts.getProductsSuccess):
       return {
         ...state,
         isLoading: false,
         data: action.payload,
       };
-    case getType(getPosts.getPostFailure):
+    case getType(getProducts.getProductsFailure):
       return {
         ...state,
         isLoading: false,

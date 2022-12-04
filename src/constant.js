@@ -1,5 +1,5 @@
 export const INIT_STATE = {
-  posts: {
+  products: {
     isLoading: false,
     data: [],
   },

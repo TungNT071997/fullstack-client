@@ -2,13 +2,14 @@ import { takeLatest, call, put } from "redux-saga/effects";
 import * as actions from "../actions";
 import * as api from "../../api";
 
-function* fetchPostSaga(action) {
-  const posts = yield call(api.fetchPosts);
-  console.log("[posts]", posts);
-  yield put(actions.getPosts.getPostsSuccess(posts));
+function* fetchProductSaga(action) {
+  const products = yield call(api.fetchProducts);
+  console.log(products);
+  yield put(actions.getProducts.getProductsSuccess(products.data));
 }
+
 function* mySaga() {
-  yield takeLatest(actions.getPosts.getPostsRequest, fetchPostSaga);
+  yield takeLatest(actions.getProducts.getProductsRequest, fetchProductSaga);
 }
 
 // generate function es6
